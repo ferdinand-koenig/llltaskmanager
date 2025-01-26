@@ -116,7 +116,7 @@ The use of the Mann-Whitney U test to compare reconstruction errors between trai
 
 In some cases, the Autoencoders may not be able to accurately capture the underlying distribution, as observed in the first and last False Positive cases. To address this limitation, future work could explore the use of Variational Autoencoders (VAEs) to better approximate the probability density functions and improve task detection accuracy.
 
-## Supported Versions
+## Supported Versions and Compatibility
 
 Currently, this package supports Python versions 3.9, 3.10, and 3.11 due to TensorFlow's compatibility constraints. 
 
