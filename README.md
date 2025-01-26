@@ -161,12 +161,12 @@ Please give appropriate credit when using this code by citing both the
 
 ```bibtex
 @software{omid_lll_taskmanager_2025,
-  author = {Gheibi, Omid and Weyns, Danny and Koenig, Ferdinand},
-  title = {LLL TaskManager: A Python Package for Lifelong Unsupervised Task Management in Machine Learning},
-  month = jan,
-  year = 2025,
-  url = {https://github.com/ferdinand-koenig/lll-taskmanager},
-  license = {CC BY 4.0}
+    author = {Gheibi, Omid and Weyns, Danny and Koenig, Ferdinand},
+    title = {LLL TaskManager: A Python Package for Lifelong Unsupervised Task Management in Machine Learning},
+    month = jan,
+    year = 2025,
+    url = {https://github.com/ferdinand-koenig/lll-taskmanager},
+    license = {CC BY 4.0}
 }
 
 @inproceedings{10.1145/3524844.3528052,
