@@ -1,0 +1,41 @@
+[project]
+name = "lll_taskmanager"
+version = "0.1.1"
+description = "Unsupervised task detection in lifelong learning systems using autoencoders for task similarity detection and statistical analysis."
+authors = [
+    {name = "Omid Gheibi"},
+    {name = "Danny Weyns"},
+    {name = "Ferdinand Koenig", email="ferdinand@koenix.de"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<3.12"
+dependencies = [
+    "tensorflow-io-gcs-filesystem (==0.31.0) ; sys_platform == \"win32\"",
+    "tensorflow-io-gcs-filesystem (==0.31.0) ; sys_platform != \"win32\"",
+    "numpy (>=1.21.6,<1.23)",
+    "tensorflow (==2.11) ; sys_platform == \"win32\"",
+    "tensorflow (==2.11) ; sys_platform != \"win32\"",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "scipy (>=1.13.1,<2.0.0)",
+    "keras-tuner (>=1.4.7,<2.0.0)"
+]
+license = "CC BY 4.0"
+url = "https://github.com/ferdinand-koenig/llltaskmanager"
+
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Machine Learning"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
