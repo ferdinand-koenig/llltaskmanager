@@ -144,7 +144,7 @@ This project is licensed under the **CC BY 4.0** license, which allows you to sh
 - [GitHub: dimoibiehg / lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/)
 
 ## Links
-- 🐍 PyPI: [pypi.org/project/lll_taskmanager/](https://pypi.org/project/lll_taskmanager/)
+- 🐍 PyPI: [pypi.org/project/lll-taskmanager/](https://pypi.org/project/lll-taskmanager/)
 - 🛠 GitHub Repository: [ferdinand-koenig / llltaskmanager](https://github.com/ferdinand-koenig/llltaskmanager)
 
 
