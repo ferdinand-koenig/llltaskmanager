@@ -1,6 +1,6 @@
 # LLL Task Manager
 
-<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="70"/>
+<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="150"/>
 
 This is a Python package that implements the **Task Manager** for the Lifelong Learning Loop (LLL).  
 The **Task Manager** is designed to handle task detection and management in lifelong learning systems, utilizing autoencoders for reconstruction-based task similarity detection.
@@ -11,7 +11,7 @@ In Proceedings of the 17th Symposium on Software Engineering for Adaptive and Se
 [https://doi.org/10.1145/3524844.3528052](https://doi.org/10.1145/3524844.3528052)
 
 This is an efficient and packaged version of the task manager code that is available here:  
-[github.com/dimoibiehg/lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/blob/master/src/lifelong-learning_Second-validation-case_Gas-Delivery-System_SEAMS-2022-ready/lifelong_learner/task_manager.py)
+[GitHub: dimoibiehg / lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/blob/master/src/lifelong-learning_Second-validation-case_Gas-Delivery-System_SEAMS-2022-ready/lifelong_learner/task_manager.py)
 
 ---
 
@@ -42,7 +42,7 @@ via
 pip install lll_taskmanager
 ```
 
-### Key Methods
+## Key Methods
 
 - **`detect(X)`**: Detects whether the given data `X` introduces a new task or can be assigned to an existing task.
     - Returns: `task_is_new`, `task_id`, `pvalues`
@@ -54,7 +54,7 @@ pip install lll_taskmanager
 
 - **`delete_task(task_id)`**: Deletes a task based on its `task_id`.
 
-### Example and Discussion
+## Example and Discussion
 ```python
 import numpy as np
 from lll_taskmanager import TaskManager
@@ -126,7 +126,7 @@ If you'd like to use this package with other versions of Python or TensorFlow, y
 
 
 ## License
-<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="70"/>
+<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="150"/>
 
 This project is licensed under the **CC BY 4.0** license, which allows you to share and adapt the material, as long as you provide appropriate credit.
 
@@ -136,8 +136,12 @@ This project is licensed under the **CC BY 4.0** license, which allows you to sh
 
 - **Omid Gheibi and Danny Weyns**. _Lifelong self-adaptation: self-adaptation meets lifelong machine learning._  
   In Proceedings of the 17th Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS '22).  
-  [https://doi.org/10.1145/3524844.3528052](https://doi.org/10.1145/3524844.3528052)
-- [github.com/dimoibiehg/lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/blob/master/src/lifelong-learning_Second-validation-case_Gas-Delivery-System_SEAMS-2022-ready/lifelong_learner/task_manager.py)
+  [doi.org/10.1145/3524844.3528052](https://doi.org/10.1145/3524844.3528052)
+- [GitHub: dimoibiehg / lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/blob/master/src/lifelong-learning_Second-validation-case_Gas-Delivery-System_SEAMS-2022-ready/lifelong_learner/task_manager.py)
+
+## Links
+- 🐍 PyPI: [pypi.org/project/lll_taskmanager/](https://pypi.org/project/lll_taskmanager/)
+- 🛠 GitHub Repository: [ferdinand-koenig / llltaskmanager](https://github.com/ferdinand-koenig/llltaskmanager)
 
 
 ## Contact

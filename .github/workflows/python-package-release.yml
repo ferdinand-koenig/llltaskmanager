@@ -1,0 +1,114 @@
+name: Publish Python 🐍 distribution 📦 to PyPI and GitHub Release
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  build:
+    name: Build distribution 📦
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+    - name: Install Poetry
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+    - name: Install dependencies with Poetry
+      run: |
+        poetry install
+    - name: Build distribution with Poetry
+      run: |
+        poetry build
+    - name: Store the distribution packages
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+  publish-to-pypi:
+    name: Publish Python 🐍 distribution 📦 to PyPI
+    needs:
+    - build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/lll_taskmanager
+    permissions:
+      id-token: write  # Mandatory for trusted publishing
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        verbose: true
+
+  github-release:
+    name: Sign the Python 🐍 distribution 📦 with Sigstore and upload them to GitHub Release
+    needs:
+    - publish-to-pypi
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Required for GitHub Releases
+      id-token: write  # Required for sigstore
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Get version from pyproject.toml
+      id: get_version
+      run: |
+        version=$(poetry version -s)
+        echo "VERSION=$version" >> $GITHUB_ENV
+
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+    - name: Sign the dists with Sigstore
+      uses: sigstore/gh-action-sigstore-python@v3.0.0
+      with:
+        inputs: >-
+          ./dist/*.tar.gz
+          ./dist/*.whl
+
+    - name: Debug VERSION environment variable
+      run: echo VERSION=${{ env.VERSION }}
+
+    - name: Create ZIP of distribution files
+      run: |
+        cd dist
+        zip -r lll-taskmanager-${{ env.VERSION }}-bundle.zip *
+
+    - name: Create GitHub Release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        VERSION: ${{ env.VERSION }}  # Ensure VERSION is available here as well
+      run: >-
+        gh release create "$VERSION" \
+          --repo "$GITHUB_REPOSITORY" \
+          --title "lll-taskmanager ${{ env.VERSION }}" \
+          --notes "Install via \`pip install lll-taskmanager==${{ env.VERSION }}\`. See README.md.
+
+    - name: Upload artifact signatures to GitHub Release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: >-
+        gh release upload "$VERSION" dist/** --repo "$GITHUB_REPOSITORY"
