@@ -1,6 +1,6 @@
 # LLL Task Manager
 
-<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="150"/>
+<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="100"/>
 
 This is a Python package that implements the **Task Manager** for the Lifelong Learning Loop (LLL).  
 The **Task Manager** is designed to handle task detection and management in lifelong learning systems, utilizing autoencoders for reconstruction-based task similarity detection.

@@ -16,7 +16,7 @@ dependencies = [
     "numpy (>=1.21.6,<1.23)",
 
     "tensorflow (==2.11) ; sys_platform == \"win32\"",
-    "tensorflow ; sys_platform != \"win32\"",
+    "tensorflow ; sys_platform == \"linux\"",
     "tensorflow-macos == 2.11.0 ; sys_platform == \"darwin\"",
     "tensorflow-metal == 0.7.0 ; sys_platform == \"darwin\"",
 
