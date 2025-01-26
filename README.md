@@ -165,7 +165,7 @@ Please give appropriate credit when using this code by citing both the
     title = {LLL TaskManager: A Python Package for Lifelong Unsupervised Task Management in Machine Learning},
     month = jan,
     year = 2025,
-    url = {https://github.com/ferdinand-koenig/lll-taskmanager},
+    url = {https://github.com/ferdinand-koenig/llltaskmanager},
     license = {CC BY 4.0}
 }
 
