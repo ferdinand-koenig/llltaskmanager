@@ -118,12 +118,15 @@ In some cases, the Autoencoders may not be able to accurately capture the underl
 
 ## Supported Versions and Compatibility
 
-Currently, this package supports Python versions 3.9, 3.10, and 3.11 due to TensorFlow's compatibility constraints.
-Further, the dependencies are pinned to TensorFlow 2.11 on Windows and MacOS, since after the support for these
-platforms was abandoned.
+Currently, this package supports Python versions **3.9** and **3.10** due to **TensorFlow's** compatibility constraints.  
+Therefore, the dependencies are pinned to **TensorFlow 2.11**.
 
-If you'd like to use this package with other versions of Python or TensorFlow, you're welcome to contribute by forking
-the repository and submitting a pull request with the updated versions in `pytoml`.
+If you'd like to use this package with other versions of Python or TensorFlow, you're welcome to contribute by forking the repository and submitting a pull request with the updated versions in `pytoml`.
+
+### Tested and Confirmed Platforms:
+- **Ubuntu**: Python 3.9 and 3.10
+- **Windows**: Python 3.9 and 3.10
+- **macOS**: Python 3.9
 
 
 ## License

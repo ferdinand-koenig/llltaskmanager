@@ -8,7 +8,7 @@ authors = [
     {name = "Ferdinand Koenig", email="ferdinand@koenix.de"}
 ]
 readme = "README.md"
-requires-python = ">=3.9,<3.12"
+requires-python = ">=3.9,<3.11"
 dependencies = [
     # TensorFlow IO for Windows and Linux
     "tensorflow-io-gcs-filesystem (==0.31.0) ; sys_platform == \"win32\"",
