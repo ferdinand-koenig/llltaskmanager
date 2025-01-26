@@ -54,8 +54,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering",
-    "Topic :: Software Development :: Libraries",
-    "Topic :: Machine Learning"
+    "Topic :: Software Development :: Libraries"
 ]
 
 [build-system]
