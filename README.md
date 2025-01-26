@@ -144,7 +144,7 @@ This project is licensed under the **CC BY 4.0** license, which allows you to sh
 - [GitHub: dimoibiehg / lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/)
 
 ## Links
-- 🐍 PyPI: [pypi.org/project/lll_taskmanager/](https://pypi.org/project/lll_taskmanager/)
+- 🐍 PyPI: [pypi.org/project/lll-taskmanager/](https://pypi.org/project/lll-taskmanager/)
 - 🛠 GitHub Repository: [ferdinand-koenig / llltaskmanager](https://github.com/ferdinand-koenig/llltaskmanager)
 
 
@@ -165,7 +165,7 @@ Please give appropriate credit when using this code by citing both the
     title = {LLL TaskManager: A Python Package for Lifelong Unsupervised Task Management in Machine Learning},
     month = jan,
     year = 2025,
-    url = {https://github.com/ferdinand-koenig/lll-taskmanager},
+    url = {https://github.com/ferdinand-koenig/llltaskmanager},
     license = {CC BY 4.0}
 }
 

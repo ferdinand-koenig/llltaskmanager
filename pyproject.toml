@@ -1,11 +1,11 @@
 [project]
 name = "lll_taskmanager"
-version = "0.1.1rc1"
+version = "0.1.1rc4"
 description = "Unsupervised task detection in lifelong learning systems using autoencoders for task similarity detection and statistical analysis."
 authors = [
+    {name = "Ferdinand Koenig", email="ferdinand@koenix.de"},
     {name = "Omid Gheibi"},
-    {name = "Danny Weyns"},
-    {name = "Ferdinand Koenig", email="ferdinand@koenix.de"}
+    {name = "Danny Weyns"}
 ]
 readme = "README.md"
 requires-python = ">=3.9,<3.11"
@@ -49,13 +49,11 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Operating System :: OS Independent",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering",
-    "Topic :: Software Development :: Libraries",
-    "Topic :: Machine Learning"
+    "Topic :: Software Development :: Libraries"
 ]
 
 [build-system]
