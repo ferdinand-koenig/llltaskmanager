@@ -108,7 +108,7 @@ jobs:
         gh release create "$VERSION" \
           --repo "$GITHUB_REPOSITORY" \
           --title "lll-taskmanager ${{ env.VERSION }}" \
-          --notes "Install via \`pip install lll-taskmanager==${{ env.VERSION }}\`. See README.md.
+          --notes "Install via \`pip install lll-taskmanager==${{ env.VERSION }}\`. See README.md."
 
     - name: Upload artifact signatures to GitHub Release
       env:
