@@ -16,7 +16,11 @@ dependencies = [
     "numpy (>=1.21.6,<1.23)",
 
     "tensorflow (==2.11) ; sys_platform == \"win32\"",
-    "tensorflow ; sys_platform == \"linux\"",
+    # TensorFlow 2.12 for Python 3.11 on Linux
+    "tensorflow (==2.12) ; sys_platform == \"linux\" and python_version == \"3.11\"",
+
+    # For other versions of Linux and Python
+    "tensorflow (==2.11) ; sys_platform == \"linux\" and python_version != \"3.11\"",
     "tensorflow-macos == 2.11.0 ; sys_platform == \"darwin\"",
     "tensorflow-metal == 0.7.0 ; sys_platform == \"darwin\"",
 
