@@ -141,7 +141,7 @@ This project is licensed under the **CC BY 4.0** license, which allows you to sh
 - **Omid Gheibi and Danny Weyns**. _Lifelong self-adaptation: self-adaptation meets lifelong machine learning._  
   In Proceedings of the 17th Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS '22).  
   [doi.org/10.1145/3524844.3528052](https://doi.org/10.1145/3524844.3528052)
-- [GitHub: dimoibiehg / lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/blob/master/src/lifelong-learning_Second-validation-case_Gas-Delivery-System_SEAMS-2022-ready/lifelong_learner/task_manager.py)
+- [GitHub: dimoibiehg / lifelong_self-adaptation](https://github.com/dimoibiehg/lifelong_self-adaptation/)
 
 ## Links
 - 🐍 PyPI: [pypi.org/project/lll_taskmanager/](https://pypi.org/project/lll_taskmanager/)
