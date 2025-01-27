@@ -3,7 +3,7 @@ from typing import Dict
 import warnings
 import os
 
-from .autoencoder_utils import _generate_autoencoder, _compute_reconstruction_errors, _build_auto_encoder_model
+from .autoencoder_utils import _generate_autoencoder, _compute_reconstruction_errors
 
 import tensorflow.keras as keras
 
@@ -61,6 +61,7 @@ class TaskManager:
         if not self.verbose:
             warnings.filterwarnings("ignore")
             os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+        self.next_task_id = 0
 
     def detect(self, X):
         """
@@ -177,7 +178,8 @@ class TaskManager:
         """
         autoencoder = _generate_autoencoder(X, training_epochs=60)
         training_reconstruction_errors = _compute_reconstruction_errors(autoencoder, X, verbose=self.verbose)
-        task_id = max(self.task_autoencoders.keys()) + 1
+        task_id = self.next_task_id
+        self.next_task_id += 1
         self.task_autoencoders[task_id] = \
             TaskManager.TaskAutoencoder(autoencoder=autoencoder,
                                         training_reconstruction_errors=training_reconstruction_errors)
