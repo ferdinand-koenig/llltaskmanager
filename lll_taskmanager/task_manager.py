@@ -3,7 +3,7 @@ from typing import Dict
 import warnings
 import os
 
-from .autoencoder_utils import _generate_autoencoder, _compute_reconstruction_errors, _build_auto_encoder_model
+from .autoencoder_utils import _generate_autoencoder, _compute_reconstruction_errors
 
 import tensorflow.keras as keras
 
