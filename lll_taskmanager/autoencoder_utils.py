@@ -7,6 +7,7 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.regularizers import l1
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import clone_model
 
 import numpy as np
 
@@ -131,7 +132,12 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
 
     tuner.search(X, X, epochs=30, validation_split=0.2, verbose=False)
 
-    autoencoder = tuner.get_best_models(1)[0]
+    # autoencoder = tuner.get_best_models(1)[0]
+
+    # The other model gets cleaned up. Make a copy for autoencoder
+    best_model = tuner.get_best_models(1)[0]
+    autoencoder = clone_model(best_model)
+    autoencoder.set_weights(best_model.get_weights())
 
     # Access the project directory from the Oracle instance
     project_dir = os.path.join(tuner.directory, tuner.project_name)
