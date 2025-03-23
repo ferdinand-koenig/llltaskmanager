@@ -14,6 +14,7 @@ import numpy as np
 import os
 import stat
 import platform
+import tempfile
 
 """
     This code was recreated after instructions from
@@ -123,11 +124,15 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
     if X.shape[0] < 10:
         raise ValueError(f"X should have at least 10 examples (arbitrary threshold), but it has {X.shape[0]}.")
     model_creator = partial(_build_auto_encoder_model, input_dim=len(X[0]))
+
+    # Create a temporary directory for this tuning session
+    temp_dir = tempfile.mkdtemp()
     tuner = kt.BayesianOptimization(
         model_creator,
         objective='val_loss',
         max_trials=30,
         overwrite=True,
+        directory=temp_dir,  # Use the temporary directory
         project_name='temp-kt-lll')  # + _with_considering_per_task_0001_with_top_1_uncertainties
 
     tuner.search(X, X, epochs=30, validation_split=0.2, verbose=False)
@@ -141,21 +146,27 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
     autoencoder.set_weights(best_model.get_weights())
     autoencoder.compile(optimizer=Adam(learning_rate=best_hps.get('learning_rate')), loss='mse')
 
-    # Access the project directory from the Oracle instance
-    project_dir = os.path.join(tuner.directory, tuner.project_name)
+    # # Access the project directory from the Oracle instance
+    # project_dir = os.path.join(tuner.directory, tuner.project_name)
+    #
+    # # Check if the system is Linux before modifying file permissions
+    # if platform.system() == 'Linux':
+    #     try:
+    #         # Ensure the directory is fully writable before deleting
+    #         os.chmod(project_dir, stat.S_IWUSR | stat.S_IRUSR | stat.S_IXUSR)
+    #     except Exception as e:
+    #         print(f"Error while updating permissions: {e}")
+    # # Try to delete the project directory after the search is completed
+    # try:
+    #     shutil.rmtree(project_dir)
+    # except Exception:
+    #     pass
 
-    # Check if the system is Linux before modifying file permissions
-    if platform.system() == 'Linux':
-        try:
-            # Ensure the directory is fully writable before deleting
-            os.chmod(project_dir, stat.S_IWUSR | stat.S_IRUSR | stat.S_IXUSR)
-        except Exception as e:
-            print(f"Error while updating permissions: {e}")
-    # Try to delete the project directory after the search is completed
+    # Clean up the temporary directory after the search
     try:
-        shutil.rmtree(project_dir)
-    except Exception:
-        pass
+        shutil.rmtree(temp_dir)
+    except Exception as e:
+        print(f"Error while deleting temporary directory: {e}")
 
     autoencoder.fit(X, X, epochs=training_epochs, batch_size=len(X), verbose=False)
     keras.backend.clear_session()
