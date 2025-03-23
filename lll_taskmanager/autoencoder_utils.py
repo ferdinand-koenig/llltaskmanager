@@ -131,6 +131,8 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
 
     tuner.search(X, X, epochs=30, validation_split=0.2, verbose=False)
 
+    autoencoder = tuner.get_best_models(1)[0]
+
     # Access the project directory from the Oracle instance
     project_dir = os.path.join(tuner.directory, tuner.project_name)
 
@@ -146,8 +148,6 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
         shutil.rmtree(project_dir)
     except Exception:
         pass
-
-    autoencoder = tuner.get_best_models(1)[0]
 
     autoencoder.fit(X, X, epochs=training_epochs, batch_size=len(X), verbose=False)
     keras.backend.clear_session()
