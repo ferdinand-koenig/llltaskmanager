@@ -147,6 +147,6 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
     autoencoder = tuner.get_best_models(1)[0]
 
     autoencoder.fit(X, X, epochs=training_epochs, batch_size=len(X), verbose=False)
-    tf.keras.backend.clear_session()
+    keras.backend.clear_session()
 
     return autoencoder
