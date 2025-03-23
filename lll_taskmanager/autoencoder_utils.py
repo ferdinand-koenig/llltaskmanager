@@ -132,11 +132,7 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
     tuner.search(X, X, epochs=30, validation_split=0.2, verbose=False)
 
     # Access the project directory from the Oracle instance
-    try:
-        project_dir = tuner.oracle.get_project_dir()
-    except Exception as e:
-        print("[Debugging info] Oracle dir: ", dir(tuner.oracle))
-        raise e
+    project_dir = os.path.join(tuner.directory, tuner.project_name)
 
     # Check if the system is Linux before modifying file permissions
     if platform.system() == 'Linux':

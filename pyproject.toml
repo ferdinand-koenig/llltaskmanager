@@ -1,6 +1,6 @@
 [project]
 name = "lll_taskmanager"
-version = "0.1.4"
+version = "0.1.5rc1"
 description = "Unsupervised task detection in lifelong learning systems using autoencoders for task similarity detection and statistical analysis."
 authors = [
     {name = "Ferdinand Koenig", email="ferdinand@koenix.de"},
