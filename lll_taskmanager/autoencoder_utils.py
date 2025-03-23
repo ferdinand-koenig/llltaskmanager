@@ -131,16 +131,23 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
 
     tuner.search(X, X, epochs=30, validation_split=0.2, verbose=False)
 
+    # Access the project directory from the Oracle instance
+    try:
+        project_dir = tuner.oracle.get_project_dir()
+    except Exception as e:
+        print("[Debugging info] Oracle dir: ", dir(tuner.oracle))
+        raise e
+
     # Check if the system is Linux before modifying file permissions
     if platform.system() == 'Linux':
         try:
             # Ensure the directory is fully writable before deleting
-            os.chmod(tuner.oracle.project_dir, stat.S_IWUSR | stat.S_IRUSR | stat.S_IXUSR)
+            os.chmod(project_dir, stat.S_IWUSR | stat.S_IRUSR | stat.S_IXUSR)
         except Exception as e:
             print(f"Error while updating permissions: {e}")
     # Try to delete the project directory after the search is completed
     try:
-        shutil.rmtree(tuner.oracle.project_dir)
+        shutil.rmtree(project_dir)
     except Exception:
         pass
 
