@@ -63,7 +63,7 @@ class TaskManager:
             os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
         self.next_task_id = 0
 
-    def detect(self, X):
+    def detect(self, X, create_task: bool = True):
         """
         Detect whether a new task is introduced or an existing task can be assigned.
 
@@ -123,7 +123,10 @@ class TaskManager:
                                    _compute_reconstruction_errors(autoencoder, X, verbose=self.verbose))))
             else:
                 # No similar task found; initialize a new task
-                task_id = self.add_new_task(X)
+                if create_task:
+                    task_id = self.add_new_task(X)
+                else:
+                    task_id = -1
 
         pvalues = self._calculate_p_values(X)
         return task_is_new, task_id, pvalues
