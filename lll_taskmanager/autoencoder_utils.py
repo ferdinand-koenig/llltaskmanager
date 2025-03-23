@@ -135,9 +135,11 @@ def _generate_autoencoder(X: np.ndarray, training_epochs):
     # autoencoder = tuner.get_best_models(1)[0]
 
     # The other model gets cleaned up. Make a copy for autoencoder
+    best_hps = tuner.get_best_hyperparameters(1)[0]
     best_model = tuner.get_best_models(1)[0]
     autoencoder = clone_model(best_model)
     autoencoder.set_weights(best_model.get_weights())
+    autoencoder.compile(optimizer=Adam(learning_rate=best_hps.get('learning_rate')), loss='mse')
 
     # Access the project directory from the Oracle instance
     project_dir = os.path.join(tuner.directory, tuner.project_name)
